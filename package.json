@@ -1,0 +1,24 @@
+{
+  "name": "vue-auto-bus",
+  "version": "0.0.1",
+  "description": "A simple global event bus tool for Vue2.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellingfine/vue-auto-bus.git"
+  },
+  "keywords": [
+    "vue",
+    "bus",
+    "auto-bus"
+  ],
+  "author": "wellingfine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wellingfine/vue-auto-bus/issues"
+  },
+  "homepage": "https://github.com/wellingfine/vue-auto-bus#readme"
+}
