@@ -1,0 +1,57 @@
+<!doctype>
+<html>
+	<head>
+		<title>vue-auto-bus demo</title>
+<style>
+.cmp{border: 1px solid #ddd;margin: 20px;padding: 15px;}
+textarea{width:400px;height: 180px;}
+</style>		
+	</head>
+	<body>
+		<div id="cmp-a" class="cmp">
+			Component-A <button @click="send2b">send2b</button>
+		</div>
+		<div id="cmp-b" class="cmp">
+			<div>Component-B received:</div>
+			<textarea v-model="rec"></textarea>
+		</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../index.js"></script>
+<script>
+var cmpa = new Vue({
+	el: '#cmp-a',
+	data: {
+		message: 'Hello Vue!'
+	},
+	mounted:function(){
+
+	},
+	methods:{
+		send2b:function(){
+			this.$bus.emit('hello-b',{msg:'What are you doing?'},'msg2')
+		}
+	}
+})
+var cmpb = new Vue({
+	el: '#cmp-b',
+	data: {
+		rec:'',
+	},
+	mounted:function(){
+		this.$bus.on('hello-b',(...args)=>{
+			console.log('got msg in mounted',args)
+		})
+	},
+	$bus:{
+		'hello-b':function(...args){
+			this.rec+= args[1]
+			console.log('got msg',args)
+		}
+	}
+})
+
+</script>
+	</body>
+</html>
